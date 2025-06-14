@@ -1,4 +1,28 @@
 package Pages;
 
-public class LoginPage {
+import Utilities.GWD;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class LoginPage extends ParentPage {
+
+    public LoginPage() {
+        PageFactory.initElements(GWD.getDriver(), this);
+    }
+
+    @FindBy(css="[formcontrolname='username']")
+    public WebElement username;
+
+    @FindBy(css="[formcontrolname='password']")
+    public WebElement password;
+
+    @FindBy(css="[aria-label='LOGIN']")
+    public WebElement loginButton;
+
+    @FindBy(css=".avatar-bigger")
+    public WebElement userIcon;
+
+    @FindBy(css=".hot-toast-bar-base-container")
+    public WebElement errorMessage;
 }
