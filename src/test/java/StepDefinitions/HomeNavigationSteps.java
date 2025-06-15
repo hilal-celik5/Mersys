@@ -4,6 +4,7 @@ import Pages.HomePage;
 import Utilities.GWD;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
@@ -34,5 +35,19 @@ public class HomeNavigationSteps {
         homePage.wait.until(ExpectedConditions.urlContains("techno"));
 
         Assert.assertEquals(GWD.getDriver().getCurrentUrl(), "https://techno.study/");
+    }
+
+    @When("The user clicks on the {string} button in the top navigation")
+    public void theUserClicksOnTheButtonInTheTopNavigation(String menuItem) {
+        WebElement button = homePage.getWebElement(menuItem);
+        homePage.wait.until(ExpectedConditions.elementToBeClickable(button));
+        homePage.myClick(button);
+    }
+
+    @Then("The {string} page or panel should be displayed correctly")
+    public void thePageOrPanelShouldBeDisplayedCorrectly(String menuItem) {
+        WebElement verifier = homePage.getVerifierElement(menuItem.toLowerCase());
+        homePage.wait.until(ExpectedConditions.visibilityOf(verifier));
+        Assert.assertTrue(verifier.isDisplayed());
     }
 }
