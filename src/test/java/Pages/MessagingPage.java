@@ -32,6 +32,28 @@ public class MessagingPage extends ParentPage {
     @FindBy(xpath = "//span[text()='Trash']")
     public WebElement trash;
 
+    @FindBy(css = "[caption='NAV.GRADING.TITLE']+span" )
+    public WebElement menü;
+
+    @FindBy(css = "[tooltip='USER_MESSAGES.BUTTONS.RECEIVER']")
+    public WebElement addReceiver;
+
+    @FindBy (css = "[class='mdc-data-table__content ng-star-inserted']")
+    public WebElement select10;
+
+    @FindBy(xpath = "//span[text()='Add & Close']")
+    public WebElement addclose;
+
+    @FindBy(css = "[class='mat-mdc-input-element mat-mdc-form-field-input-control mdc-text-field__input cdk-text-field-autofill-monitored']")
+    public WebElement subject;
+
+    @FindBy(css = "[icon='save']")
+    public WebElement Save;
+
+    @FindBy(xpath = "//div[text()='team']")
+    public WebElement writing;
+
+
     public WebElement getWebElement(String element) {
         switch (element) {
             case "hamburger menu":
