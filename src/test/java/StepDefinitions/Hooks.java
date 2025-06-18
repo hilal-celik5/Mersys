@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class Hooks {
 
-    @Before("@LoginRequired")
+    @Before
     public void login() {
         LoginPage loginPage = new LoginPage();
 
