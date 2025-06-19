@@ -1,3 +1,4 @@
+@LoginRequired
 Feature: Finance installment view
 
   Scenario: Checking the Installment schedule

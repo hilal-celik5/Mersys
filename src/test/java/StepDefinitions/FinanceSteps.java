@@ -7,9 +7,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import java.io.File;
 import java.io.IOException;
@@ -17,45 +15,44 @@ import java.time.Duration;
 import java.util.Set;
 
 public class FinanceSteps {
-    FinancePage fp = new FinancePage();
-    Actions actions = new Actions(GWD.getDriver());
+    FinancePage financePage = new FinancePage();
 
     @Given("Click on the Hamburger Icon")
-    public void click_on_the_hamburger_icon() throws InterruptedException {
-        Thread.sleep(Duration.ofMillis(3000));
-        fp.myClick(fp.hamburgerMenu);
-        actions.moveToElement(fp.Finance).pause(Duration.ofMillis(1000)).build().perform();
-        fp.myClick(fp.MyFinance);
+    public void click_on_the_hamburger_icon(){
+        financePage.wait.until(ExpectedConditions.visibilityOf(financePage.hamburgerMenu));
+        financePage.myClick(financePage.hamburgerMenu);
+        financePage.actions.moveToElement(financePage.Finance).pause(Duration.ofMillis(1000)).build().perform();
+        financePage.myClick(financePage.MyFinance);
     }
 
     @Given("Navigate to Finance page")
     public void navigate_to_finance_page() {
-        fp.myClick(fp.Student);
+        financePage.myClick(financePage.Student);
     }
 
     @When("Click on the Fee Balance Detail button")
     public void click_on_the_fee_balance_detail_button() {
-        fp.wait.until(ExpectedConditions.visibilityOf(fp.BalanceDetail));
-        Assert.assertTrue(fp.BalanceDetail.isDisplayed());
-        fp.myClick(fp.BalanceDetail);
+        financePage.wait.until(ExpectedConditions.visibilityOf(financePage.BalanceDetail));
+        Assert.assertTrue(financePage.BalanceDetail.isDisplayed());
+        financePage.myClick(financePage.BalanceDetail);
     }
 
     @Then("Installment schedule should be visible")
     public void installment_schedule_should_be_visible() {
-        fp.wait.until(ExpectedConditions.visibilityOf(fp.PayerInfo));
-        Assert.assertTrue(fp.PayerInfo.isDisplayed());
-        fp.myClick(fp.OnlinePayment);
+        financePage.wait.until(ExpectedConditions.visibilityOf(financePage.PayerInfo));
+        Assert.assertTrue(financePage.PayerInfo.isDisplayed());
+        financePage.myClick(financePage.OnlinePayment);
     }
 
     @When("Click on the stripe")
     public void clickOnTheStripe() {
-        fp.myClick(fp.stripe);
+        financePage.myClick(financePage.stripe);
     }
 
     @Then("Student should be able to do payment")
     public void studentShouldBeAbleToDoPayment() {
         String beforeclick = GWD.getDriver().getCurrentUrl();
-        fp.myClick(fp.payment);
+        financePage.myClick(financePage.payment);
         String afterclick = GWD.getDriver().getCurrentUrl();
 
         if (beforeclick.equals(afterclick)) {
@@ -73,11 +70,11 @@ public class FinanceSteps {
     @Then("Student should be able to download report form from Three-dot menu button")
     public void studentShouldBeAbleToDownloadReportFormFromThreeDotMenuButton() throws InterruptedException {
 
-        fp.myClick(fp.excelExport);
-        fp.myClick(fp.threeDot);
-        fp.myClick(fp.pdfExport);
+        financePage.myClick(financePage.excelExport);
+        financePage.myClick(financePage.threeDot);
+        financePage.myClick(financePage.pdfExport);
         String originalWindow = GWD.getDriver().getWindowHandle();
-        fp.wait.until(driver -> GWD.getDriver().getWindowHandles().size() > 1);
+        financePage.wait.until(driver -> GWD.getDriver().getWindowHandles().size() > 1);
         Set<String> allWindows = GWD.getDriver().getWindowHandles();
         for (String window : allWindows) {
             if (!window.equals(originalWindow)) {
@@ -87,18 +84,18 @@ public class FinanceSteps {
         }
         Thread.sleep(2000);
         for (int i = 0; i <10 ; i++) {
-            actions.sendKeys(Keys.TAB).pause(Duration.ofMillis(500));
+            financePage.actions.sendKeys(Keys.TAB).pause(Duration.ofMillis(500));
         }
-            actions.sendKeys(Keys.ENTER).pause(Duration.ofMillis(1000));
-            actions.sendKeys(Keys.ENTER).pause(Duration.ofMillis(1000));
+        financePage.actions.sendKeys(Keys.ENTER).pause(Duration.ofMillis(1000));
+        financePage.actions.sendKeys(Keys.ENTER).pause(Duration.ofMillis(1000));
 
-        actions.perform();
+        financePage.actions.perform();
     }
 
     @When("Click on the three dot")
     public void clickOnTheThreeDot() throws InterruptedException {
-        fp.myClick(fp.threeDot);
-        fp.wait.until(ExpectedConditions.visibilityOf(fp.pdfExport));
+        financePage.myClick(financePage.threeDot);
+        financePage.wait.until(ExpectedConditions.visibilityOf(financePage.pdfExport));
     }
 
     @Then("Student should be able to see updated balance")

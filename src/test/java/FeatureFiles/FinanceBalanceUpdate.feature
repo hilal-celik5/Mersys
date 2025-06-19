@@ -1,3 +1,4 @@
+@LoginRequired
 Feature: Finance balance update
 
   Scenario: Checking the updated balance

@@ -1,3 +1,4 @@
+@LoginRequired
 Feature: Finance download report
 
   Scenario: Three-dot menu

@@ -1,3 +1,4 @@
+@LoginRequired
 Feature: Doing the Payment
 
   Scenario: Doing the payment using the stripe
