@@ -1,3 +1,4 @@
+@LoginRequired
 Feature: Calendar Access Ended Recordings
 
   Scenario: User views ended recordings on the calendar

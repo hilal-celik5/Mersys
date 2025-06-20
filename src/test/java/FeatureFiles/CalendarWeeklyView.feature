@@ -1,3 +1,4 @@
+@LoginRequired
 Feature: Calendar Weekly View
 
   Scenario: Display weekly calendar view

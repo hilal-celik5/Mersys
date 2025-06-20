@@ -1,3 +1,4 @@
+@LoginRequired
 Feature: Calendar Block for Unstarted Course
 
   Scenario: Calendar shows upcoming course not started
