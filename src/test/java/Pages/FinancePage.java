@@ -9,7 +9,6 @@ public class FinancePage extends ParentPage {
     public FinancePage() {
         PageFactory.initElements(GWD.getDriver(), this);
     }
-
     @FindBy(xpath = "//button[contains(@class, 'mat-mdc-menu-trigger')]//fa-icon")
     public WebElement hamburgerMenu;
 

@@ -9,7 +9,6 @@ import io.cucumber.java.Before;
 import java.util.ArrayList;
 
 public class Hooks {
-
     @Before("@LoginRequired")
     public void login() {
         LoginPage loginPage = new LoginPage();

@@ -16,7 +16,6 @@ import java.util.Set;
 
 public class FinanceSteps {
     FinancePage financePage = new FinancePage();
-
     @Given("Click on the Hamburger Icon")
     public void click_on_the_hamburger_icon(){
         financePage.wait.until(ExpectedConditions.visibilityOf(financePage.hamburgerMenu));
@@ -24,31 +23,26 @@ public class FinanceSteps {
         financePage.actions.moveToElement(financePage.Finance).pause(Duration.ofMillis(1000)).build().perform();
         financePage.myClick(financePage.MyFinance);
     }
-
     @Given("Navigate to Finance page")
     public void navigate_to_finance_page() {
         financePage.myClick(financePage.Student);
     }
-
     @When("Click on the Fee Balance Detail button")
     public void click_on_the_fee_balance_detail_button() {
         financePage.wait.until(ExpectedConditions.visibilityOf(financePage.BalanceDetail));
         Assert.assertTrue(financePage.BalanceDetail.isDisplayed());
         financePage.myClick(financePage.BalanceDetail);
     }
-
     @Then("Installment schedule should be visible")
     public void installment_schedule_should_be_visible() {
         financePage.wait.until(ExpectedConditions.visibilityOf(financePage.PayerInfo));
         Assert.assertTrue(financePage.PayerInfo.isDisplayed());
         financePage.myClick(financePage.OnlinePayment);
     }
-
     @When("Click on the stripe")
     public void clickOnTheStripe() {
         financePage.myClick(financePage.stripe);
     }
-
     @Then("Student should be able to do payment")
     public void studentShouldBeAbleToDoPayment() {
         String beforeclick = GWD.getDriver().getCurrentUrl();
@@ -66,7 +60,6 @@ public class FinanceSteps {
             Assert.fail("Payment failed: URL did not change after clicking the payment button.");
         }
     }
-
     @Then("Student should be able to download report form from Three-dot menu button")
     public void studentShouldBeAbleToDownloadReportFormFromThreeDotMenuButton() throws InterruptedException {
 
@@ -97,7 +90,6 @@ public class FinanceSteps {
         financePage.myClick(financePage.threeDot);
         financePage.wait.until(ExpectedConditions.visibilityOf(financePage.pdfExport));
     }
-
     @Then("Student should be able to see updated balance")
     public void studentShouldBeAbleToSeeUpdatedBalance() {
         File screenshot = ((TakesScreenshot)GWD.getDriver()).getScreenshotAs(OutputType.FILE);

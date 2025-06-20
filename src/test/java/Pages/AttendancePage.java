@@ -9,7 +9,6 @@ public class AttendancePage extends ParentPage {
     public AttendancePage() {
         PageFactory.initElements(GWD.getDriver(),this);
     }
-
     @FindBy(xpath = "(//span[text()='Attendance'])[1]")
     public WebElement atendance;
 

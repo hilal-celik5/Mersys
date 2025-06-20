@@ -1,6 +1,5 @@
 @LoginRequired
 Feature: Finance download report
-
   Scenario: Three-dot menu
     Given Click on the Hamburger Icon
     When Click on the three dot
