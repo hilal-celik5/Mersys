@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class MessagingPage extends ParentPage {
 
     public MessagingPage() {
@@ -33,7 +35,7 @@ public class MessagingPage extends ParentPage {
     public WebElement trash;
 
     @FindBy(css = "[caption='NAV.GRADING.TITLE']+span" )
-    public WebElement menü;
+    public WebElement menu;
 
     @FindBy(css = "[tooltip='USER_MESSAGES.BUTTONS.RECEIVER']")
     public WebElement addReceiver;
@@ -53,8 +55,23 @@ public class MessagingPage extends ParentPage {
     @FindBy(xpath = "//div[text()='team']")
     public WebElement writing;
 
+    @FindBy(css = "[icon='shopping-basket'][id='ms-button-2']")
+    public WebElement productNameList;
+
+    @FindBy(xpath = "//span[text()=' Yes ']")
+    public WebElement Yes;
+
+    @FindBy(xpath = "//div[text()='Message successfully moved to trash!']")
+    public WebElement Confirmationmessage;
+
+    @FindBy (css = "[icon='trash-restore'][class='ng-star-inserted'][id='ms-standard-button-2']")
+    public WebElement Restore;
+
+    @FindBy (xpath = "//div[text()='Message successfully restored from trash']")
+    public WebElement Undo;
 
     public WebElement getWebElement(String element) {
+
         switch (element) {
             case "hamburger menu":
                 return this.hamburgerMenuButton;
