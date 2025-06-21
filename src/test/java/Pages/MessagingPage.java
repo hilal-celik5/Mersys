@@ -33,7 +33,7 @@ public class MessagingPage extends ParentPage {
     public WebElement trash;
 
     @FindBy(css = "[caption='NAV.GRADING.TITLE']+span" )
-    public WebElement menü;
+    public WebElement menu;
 
     @FindBy(css = "[tooltip='USER_MESSAGES.BUTTONS.RECEIVER']")
     public WebElement addReceiver;
@@ -42,7 +42,7 @@ public class MessagingPage extends ParentPage {
     public WebElement select10;
 
     @FindBy(xpath = "//span[text()='Add & Close']")
-    public WebElement addclose;
+    public WebElement addClose;
 
     @FindBy(css = "[class='mat-mdc-input-element mat-mdc-form-field-input-control mdc-text-field__input cdk-text-field-autofill-monitored']")
     public WebElement subject;
@@ -53,8 +53,23 @@ public class MessagingPage extends ParentPage {
     @FindBy(xpath = "//div[text()='team']")
     public WebElement writing;
 
+    @FindBy(css = "[icon='shopping-basket'][id='ms-button-2']")
+    public WebElement productNameList;
+
+    @FindBy(xpath = "//span[text()=' Yes ']")
+    public WebElement yes;
+
+    @FindBy(xpath = "//div[text()='Message successfully moved to trash!']")
+    public WebElement ConfirmationMessage;
+
+    @FindBy (css = "[icon='trash-restore'][class='ng-star-inserted'][id='ms-standard-button-2']")
+    public WebElement Restore;
+
+    @FindBy (xpath = "//div[text()='Message successfully restored from trash']")
+    public WebElement Undo;
 
     public WebElement getWebElement(String element) {
+
         switch (element) {
             case "hamburger menu":
                 return this.hamburgerMenuButton;
