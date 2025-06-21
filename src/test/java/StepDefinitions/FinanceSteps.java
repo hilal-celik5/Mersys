@@ -5,12 +5,9 @@ import Utilities.GWD;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
-import java.io.File;
-import java.io.IOException;
 import java.time.Duration;
 import java.util.Set;
 
@@ -50,13 +47,6 @@ public class FinanceSteps {
         String afterclick = GWD.getDriver().getCurrentUrl();
 
         if (beforeclick.equals(afterclick)) {
-            File screenshot = ((TakesScreenshot) GWD.getDriver()).getScreenshotAs(OutputType.FILE);
-            try {
-                FileUtils.copyFile(screenshot, new File("screenshots/payment_error.png"));
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-
             Assert.fail("Payment failed: URL did not change after clicking the payment button.");
         }
     }
@@ -92,13 +82,6 @@ public class FinanceSteps {
     }
     @Then("Student should be able to see updated balance")
     public void studentShouldBeAbleToSeeUpdatedBalance() {
-        File screenshot = ((TakesScreenshot)GWD.getDriver()).getScreenshotAs(OutputType.FILE);
-        try {
-            FileUtils.copyFile(screenshot, new File("screenshots/balance_check_error.png"));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
         Assert.fail("Balance check could not be performed because the payment was unsuccessful.");
     }
 }
