@@ -12,9 +12,9 @@ public class AttendanceSteps {
     AttendancePage attendancePage = new AttendancePage();
     @Given("Navigate to Attendance page")
     public void navigate_to_attendance_page(){
-        attendancePage.myClick(attendancePage.atendance);
-        attendancePage.wait.until(ExpectedConditions.visibilityOf(attendancePage.atendanceExcuse));
-        attendancePage.js.executeScript("arguments[0].click();", attendancePage.atendanceExcuse);
+        attendancePage.myClick(attendancePage.attendance);
+        attendancePage.wait.until(ExpectedConditions.visibilityOf(attendancePage.attendanceExcuse));
+        attendancePage.js.executeScript("arguments[0].click();", attendancePage.attendanceExcuse);
     }
     @When("Add an excuse message {string}")
     public void add_an_excuse_message(String message) {

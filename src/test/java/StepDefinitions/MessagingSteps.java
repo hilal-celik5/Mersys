@@ -52,7 +52,7 @@ public class MessagingSteps {
     public void enter_valid_ınformation() {
         messagingPage.myClick(messagingPage.addClose);
         messagingPage.mySendKeys(messagingPage.subject, "team");
-        messagingPage.myClick(messagingPage.Save);
+        messagingPage.myClick(messagingPage.save);
     }
 
     @When("Verify that Valid Information has been entered")
@@ -74,13 +74,13 @@ public class MessagingSteps {
     @Given("Delete one of the messages you moved to the Trash.")
     public void delete_one_of_the_messages_you_moved_to_the_trash() {
         messagingPage.myClick(messagingPage.trash);
-        messagingPage.myClick(messagingPage.Restore);
+        messagingPage.myClick(messagingPage.restore);
     }
 
     @Then("Get the confirmation message after deleting it.")
     public void get_the_confirmation_message_after_deleting_it() {
-        messagingPage.wait.until(ExpectedConditions.visibilityOf(messagingPage.Undo));
-        Assert.assertEquals("Message successfully restored from trash", messagingPage.Undo.getText());
+        messagingPage.wait.until(ExpectedConditions.visibilityOf(messagingPage.undo));
+        Assert.assertEquals("Message successfully restored from trash", messagingPage.undo.getText());
     }
 
     @Given("Have the student click on Hamburger Menu, then go to Messaging, and select Outbox.")
@@ -101,7 +101,7 @@ public class MessagingSteps {
 
     @Then("Confirmation message after deletion")
     public void confirmation_message_after_deletion () {
-        messagingPage.wait.until(ExpectedConditions.visibilityOf(messagingPage.ConfirmationMessage));
-        Assert.assertEquals("Message successfully moved to trash!", messagingPage.ConfirmationMessage.getText());
+        messagingPage.wait.until(ExpectedConditions.visibilityOf(messagingPage.confirmationMessage));
+        Assert.assertEquals("Message successfully moved to trash!", messagingPage.confirmationMessage.getText());
     }
 }

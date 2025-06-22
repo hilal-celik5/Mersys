@@ -32,9 +32,6 @@ public class MessagingPage extends ParentPage {
     @FindBy(xpath = "//span[text()='Trash']")
     public WebElement trash;
 
-    @FindBy(css = "[caption='NAV.GRADING.TITLE']+span" )
-    public WebElement menu;
-
     @FindBy(css = "[tooltip='USER_MESSAGES.BUTTONS.RECEIVER']")
     public WebElement addReceiver;
 
@@ -48,7 +45,7 @@ public class MessagingPage extends ParentPage {
     public WebElement subject;
 
     @FindBy(css = "[icon='save']")
-    public WebElement Save;
+    public WebElement save;
 
     @FindBy(xpath = "//div[text()='team']")
     public WebElement writing;
@@ -60,13 +57,13 @@ public class MessagingPage extends ParentPage {
     public WebElement yes;
 
     @FindBy(xpath = "//div[text()='Message successfully moved to trash!']")
-    public WebElement ConfirmationMessage;
+    public WebElement confirmationMessage;
 
     @FindBy (css = "[icon='trash-restore'][class='ng-star-inserted'][id='ms-standard-button-2']")
-    public WebElement Restore;
+    public WebElement restore;
 
     @FindBy (xpath = "//div[text()='Message successfully restored from trash']")
-    public WebElement Undo;
+    public WebElement undo;
 
     public WebElement getWebElement(String element) {
 

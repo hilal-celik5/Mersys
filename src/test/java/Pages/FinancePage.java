@@ -16,41 +16,26 @@ public class FinancePage extends ParentPage{
     @FindBy(css = ".mat-mdc-menu-content")
     public WebElement hamburgerMenuPanel;
 
-    @FindBy(xpath = "//span[text()='Messaging']")
-    public WebElement messaging;
-
-    @FindBy(xpath = "//span[text()='Send Message']")
-    public WebElement sendMessage;
-
-    @FindBy(xpath = "//span[text()='Inbox']")
-    public WebElement inbox;
-
-    @FindBy(xpath = "//span[text()='Outbox']")
-    public WebElement outbox;
-
-    @FindBy(xpath = "//span[text()='Trash']")
-    public WebElement trash;
-
     @FindBy(xpath = "//span[text()='Finance']")
-    public WebElement Finance;
+    public WebElement finance;
 
     @FindBy(xpath = "//span[text()='My Finance']")
-    public WebElement MyFinance;
+    public WebElement myFinance;
 
     @FindBy(xpath = "//button[contains(@class, 'mat-mdc-menu-trigger')]//fa-icon")
     public WebElement hamburgerMenu;
 
     @FindBy(xpath = "//tbody[@role='rowgroup']/tr[2]")
-    public WebElement Student;
+    public WebElement student;
 
     @FindBy(xpath = "//span[text()='Fee/Balance Detail']")
-    public WebElement BalanceDetail;
+    public WebElement balanceDetail;
 
     @FindBy(xpath = "//span[text()='Online Payment']")
-    public WebElement OnlinePayment;
+    public WebElement onlinePayment;
 
     @FindBy(xpath = "//span[text()=' Student Fee ']")
-    public WebElement PayerInfo;
+    public WebElement payerInfo;
 
     @FindBy(xpath = "//label[text()='Stripe ']")
     public WebElement stripe;
@@ -66,24 +51,4 @@ public class FinancePage extends ParentPage{
 
     @FindBy(xpath = "//span[text()=' Pdf Export ']")
     public WebElement pdfExport;
-
-    public WebElement getWebElement(String element) {
-
-        switch (element) {
-            case "hamburger menu":
-                return this.hamburgerMenuButton;
-            case "messaging":
-                return this.messaging;
-            case "Send Message":
-                return this.sendMessage;
-            case "Inbox":
-                return this.inbox;
-            case "Outbox":
-                return this.outbox;
-            case "Trash":
-                return this.trash;
-        }
-        return null;
-
-    }
 }

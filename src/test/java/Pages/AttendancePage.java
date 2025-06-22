@@ -6,15 +6,16 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class AttendancePage extends ParentPage {
+
     public AttendancePage() {
         PageFactory.initElements(GWD.getDriver(),this);
     }
 
     @FindBy(xpath = "(//span[text()='Attendance'])[1]")
-    public WebElement atendance;
+    public WebElement attendance;
 
     @FindBy(xpath = "//span[text()=' ATTENDANCE EXCUSES ']")
-    public WebElement atendanceExcuse;
+    public WebElement attendanceExcuse;
 
     @FindBy(xpath = "//ms-add-button[@class='ng-star-inserted']/button")
     public WebElement addButton;

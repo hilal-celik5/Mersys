@@ -24,12 +24,12 @@ public class FinanceSteps {
     @And("the user has finance access permissions")
     public void the_user_has_finance_access_permissions() {
         financePage.wait.until(ExpectedConditions.visibilityOf(financePage.hamburgerMenuPanel));
-        financePage.myClick(financePage.Finance);
+        financePage.myClick(financePage.finance);
     }
 
     @When("the user navigates to the Finance page")
     public void the_user_navigates_to_the_finance_page() {
-        financePage.myClick(financePage.MyFinance);
+        financePage.myClick(financePage.myFinance);
         financePage.wait.until(ExpectedConditions.urlContains("finance"));
     }
 
@@ -37,26 +37,26 @@ public class FinanceSteps {
     public void click_on_the_hamburger_icon(){
         financePage.wait.until(ExpectedConditions.elementToBeClickable(financePage.hamburgerMenu));
         financePage.myClick(financePage.hamburgerMenu);
-        financePage.actions.moveToElement(financePage.Finance).pause(Duration.ofMillis(2000)).build().perform();
-        financePage.myClick(financePage.MyFinance);
+        financePage.actions.moveToElement(financePage.finance).pause(Duration.ofMillis(2000)).build().perform();
+        financePage.myClick(financePage.myFinance);
     }
     @Given("Navigate to Finance page")
     public void navigate_to_finance_page() {
-        financePage.wait.until(ExpectedConditions.elementToBeClickable(financePage.Student));
-        financePage.myClick(financePage.Student);
+        financePage.wait.until(ExpectedConditions.elementToBeClickable(financePage.student));
+        financePage.myClick(financePage.student);
     }
     @When("Click on the Fee Balance Detail button")
     public void click_on_the_fee_balance_detail_button() {
-        financePage.wait.until(ExpectedConditions.visibilityOf(financePage.BalanceDetail));
-        Assert.assertTrue(financePage.BalanceDetail.isDisplayed());
-        financePage.myClick(financePage.BalanceDetail);
+        financePage.wait.until(ExpectedConditions.visibilityOf(financePage.balanceDetail));
+        Assert.assertTrue(financePage.balanceDetail.isDisplayed());
+        financePage.myClick(financePage.balanceDetail);
     }
 
     @Then("Installment schedule should be visible")
     public void installment_schedule_should_be_visible() {
-        financePage.wait.until(ExpectedConditions.visibilityOf(financePage.PayerInfo));
-        Assert.assertTrue(financePage.PayerInfo.isDisplayed());
-        financePage.myClick(financePage.OnlinePayment);
+        financePage.wait.until(ExpectedConditions.visibilityOf(financePage.payerInfo));
+        Assert.assertTrue(financePage.payerInfo.isDisplayed());
+        financePage.myClick(financePage.onlinePayment);
     }
 
     @When("Click on the stripe")

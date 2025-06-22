@@ -1,5 +1,6 @@
 @LoginRequired
 Feature: Attendance Excuse
+
   Scenario:Sending excuse message
     Given Navigate to Attendance page
     When Add an excuse message "Hello sir. I do not feel OK today."

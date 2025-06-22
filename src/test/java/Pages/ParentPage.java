@@ -15,7 +15,7 @@ public class ParentPage {
     public WebDriverWait wait = new WebDriverWait(GWD.getDriver(), Duration.ofSeconds(20));
     public JavascriptExecutor js = (JavascriptExecutor) GWD.getDriver();
     public Actions actions = new Actions(GWD.getDriver());
-    Random random = new Random();
+    public Random random = new Random();
 
     public void mySendKeys(WebElement e, String text) {
         wait.until(ExpectedConditions.visibilityOf(e));
