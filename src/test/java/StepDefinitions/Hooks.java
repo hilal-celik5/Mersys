@@ -5,10 +5,13 @@ import Utilities.ExcelUtility;
 import Utilities.GWD;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import org.openqa.selenium.WebDriver;
 
 import java.util.ArrayList;
 
 public class Hooks {
+
+    public static WebDriver driver;
 
     @Before("@LoginRequired")
     public void login() {
