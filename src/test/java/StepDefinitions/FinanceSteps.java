@@ -2,10 +2,11 @@ package StepDefinitions;
 
 import Pages.FinancePage;
 import Utilities.GWD;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.*;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import java.time.Duration;
@@ -13,15 +14,34 @@ import java.util.Set;
 
 public class FinanceSteps {
     FinancePage financePage = new FinancePage();
+
+    @Given("the user is logged in")
+    public void the_user_is_logged_in() {
+        financePage.myClick(financePage.hamburgerMenuButton);
+    }
+
+    @And("the user has finance access permissions")
+    public void the_user_has_finance_access_permissions() {
+        financePage.wait.until(ExpectedConditions.visibilityOf(financePage.hamburgerMenuPanel));
+        financePage.myClick(financePage.Finance);
+    }
+
+    @When("the user navigates to the Finance page")
+    public void the_user_navigates_to_the_finance_page() {
+        financePage.myClick(financePage.MyFinance);
+        financePage.wait.until(ExpectedConditions.urlContains("finance"));
+    }
+
     @Given("Click on the Hamburger Icon")
     public void click_on_the_hamburger_icon(){
-        financePage.wait.until(ExpectedConditions.visibilityOf(financePage.hamburgerMenu));
+        financePage.wait.until(ExpectedConditions.elementToBeClickable(financePage.hamburgerMenu));
         financePage.myClick(financePage.hamburgerMenu);
-        financePage.actions.moveToElement(financePage.Finance).pause(Duration.ofMillis(1000)).build().perform();
+        financePage.actions.moveToElement(financePage.Finance).pause(Duration.ofMillis(2000)).build().perform();
         financePage.myClick(financePage.MyFinance);
     }
     @Given("Navigate to Finance page")
     public void navigate_to_finance_page() {
+        financePage.wait.until(ExpectedConditions.elementToBeClickable(financePage.Student));
         financePage.myClick(financePage.Student);
     }
     @When("Click on the Fee Balance Detail button")
@@ -84,4 +104,5 @@ public class FinanceSteps {
     public void studentShouldBeAbleToSeeUpdatedBalance() {
         Assert.fail("Balance check could not be performed because the payment was unsuccessful.");
     }
+
 }

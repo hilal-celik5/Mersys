@@ -9,39 +9,38 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 public class AttendanceSteps {
-    AttendancePage atendancePage = new AttendancePage();
-    @Given("Navigate to Atendance page")
-    public void navigate_to_atendance_page() throws InterruptedException {
-
-        atendancePage.myClick(atendancePage.atendance);
-        atendancePage.wait.until(ExpectedConditions.visibilityOf(atendancePage.atendanceExcuse));
-        atendancePage.js.executeScript("arguments[0].click();", atendancePage.atendanceExcuse);
+    AttendancePage attendancePage = new AttendancePage();
+    @Given("Navigate to Attendance page")
+    public void navigate_to_attendance_page(){
+        attendancePage.myClick(attendancePage.atendance);
+        attendancePage.wait.until(ExpectedConditions.visibilityOf(attendancePage.atendanceExcuse));
+        attendancePage.js.executeScript("arguments[0].click();", attendancePage.atendanceExcuse);
     }
     @When("Add an excuse message {string}")
     public void add_an_excuse_message(String message) {
-        atendancePage.wait.until(ExpectedConditions.visibilityOf(atendancePage.addButton));
-        atendancePage.js.executeScript("arguments[0].click();", atendancePage.addButton);
-        atendancePage.wait.until(ExpectedConditions.visibilityOf(atendancePage.calendar));
-        atendancePage.js.executeScript("arguments[0].click();", atendancePage.calendar);
-        atendancePage.wait.until(ExpectedConditions.visibilityOf(atendancePage.date));
-        atendancePage.js.executeScript("arguments[0].click();", atendancePage.date);
-        atendancePage.mySendKeys(atendancePage.message, message);
+        attendancePage.wait.until(ExpectedConditions.visibilityOf(attendancePage.addButton));
+        attendancePage.js.executeScript("arguments[0].click();", attendancePage.addButton);
+        attendancePage.wait.until(ExpectedConditions.visibilityOf(attendancePage.calendar));
+        attendancePage.js.executeScript("arguments[0].click();", attendancePage.calendar);
+        attendancePage.wait.until(ExpectedConditions.visibilityOf(attendancePage.date));
+        attendancePage.js.executeScript("arguments[0].click();", attendancePage.date);
+        attendancePage.mySendKeys(attendancePage.message, message);
     }
     @Then("User should send excuse message")
     public void user_should_send_excuse_message() {
-        atendancePage.actions.sendKeys(Keys.TAB).perform();
-        atendancePage.wait.until(ExpectedConditions.visibilityOf(atendancePage.send));
-        atendancePage.js.executeScript("arguments[0].click();", atendancePage.send);
+        attendancePage.actions.sendKeys(Keys.TAB).perform();
+        attendancePage.wait.until(ExpectedConditions.visibilityOf(attendancePage.send));
+        attendancePage.js.executeScript("arguments[0].click();", attendancePage.send);
     }
     @When("Click on the edit message button")
     public void clickOnTheEditMessageButton(){
-        atendancePage.wait.until(ExpectedConditions.visibilityOf(atendancePage.edit));
-        atendancePage.js.executeScript("arguments[0].click();", atendancePage.edit);
+        attendancePage.wait.until(ExpectedConditions.visibilityOf(attendancePage.edit));
+        attendancePage.js.executeScript("arguments[0].click();", attendancePage.edit);
     }
     @Then("Excuse message {string} should be send")
     public void excuseMessageShouldBeSend(String message) {
-        atendancePage.wait.until(ExpectedConditions.visibilityOf(atendancePage.yourMessage));
-        String sent = atendancePage.yourMessage.getText();
+        attendancePage.wait.until(ExpectedConditions.visibilityOf(attendancePage.yourMessage));
+        String sent = attendancePage.yourMessage.getText();
         System.out.println(sent);
         Assert.assertEquals(message, sent);
     }
