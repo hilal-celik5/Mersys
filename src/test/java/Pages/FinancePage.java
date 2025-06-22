@@ -37,6 +37,36 @@ public class FinancePage extends ParentPage{
     @FindBy(xpath = "//span[text()='My Finance']")
     public WebElement MyFinance;
 
+    @FindBy(xpath = "//button[contains(@class, 'mat-mdc-menu-trigger')]//fa-icon")
+    public WebElement hamburgerMenu;
+
+    @FindBy(xpath = "//tbody[@role='rowgroup']/tr[2]")
+    public WebElement Student;
+
+    @FindBy(xpath = "//span[text()='Fee/Balance Detail']")
+    public WebElement BalanceDetail;
+
+    @FindBy(xpath = "//span[text()='Online Payment']")
+    public WebElement OnlinePayment;
+
+    @FindBy(xpath = "//span[text()=' Student Fee ']")
+    public WebElement PayerInfo;
+
+    @FindBy(xpath = "//label[text()='Stripe ']")
+    public WebElement stripe;
+
+    @FindBy(xpath = "//span[text()='Pay']")
+    public WebElement payment;
+
+    @FindBy(css = "[role='cell']>div>div>button")
+    public WebElement threeDot;
+
+    @FindBy(xpath = "//span[text()=' Excel Export ']")
+    public WebElement excelExport;
+
+    @FindBy(xpath = "//span[text()=' Pdf Export ']")
+    public WebElement pdfExport;
+
     public WebElement getWebElement(String element) {
 
         switch (element) {
@@ -54,6 +84,6 @@ public class FinancePage extends ParentPage{
                 return this.trash;
         }
         return null;
+
     }
 }
-
