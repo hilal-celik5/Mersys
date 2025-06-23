@@ -10,16 +10,6 @@ public class CalendarSteps {
 
     CalendarPage calendarPage = new CalendarPage();
 
-    @Given("Navigate to calendar page")
-    public void navigate_to_calendar_page() {
-        GWD.getDriver().get("https://test.mersys.io/calendar");
-    }
-
-    @Given("User is on the calendar page")
-    public void user_is_on_the_calendar_page() {
-        GWD.getDriver().get("https://test.mersys.io/calendar");
-        calendarPage.wait.until(ExpectedConditions.visibilityOf(calendarPage.calendarBody));
-    }
 
     @And("There are past courses with recording access ended")
     public void there_are_past_courses_with_recording_access_ended() {

@@ -13,22 +13,11 @@ public class AssignmentSteps {
     AssignmentPage assignmentPage = new AssignmentPage();
     LoginPage loginPage = new LoginPage();
 
-    @Given("User navigates to login page")
-    public void user_navigates_to_login_page() {
-        GWD.getDriver().get("https://test.mersys.io/");
-    }
-
-    @And("User logs in with valid credentials")
-    public void user_logs_in_with_valid_credentials() {
-        loginPage.mySendKeys(loginPage.username, "Student_10");
-        loginPage.mySendKeys(loginPage.password, "S12345");
-        loginPage.myClick(loginPage.loginButton);
-        loginPage.wait.until(ExpectedConditions.visibilityOf(loginPage.userIcon));
-    }
 
     @Given("User is on the Assignments page")
     public void user_is_on_the_assignments_page() {
-        GWD.getDriver().get("https://test.mersys.io/assignments");
+        assignmentPage.wait.until(ExpectedConditions.elementToBeClickable(assignmentPage.assignmetns));
+        assignmentPage.myClick(assignmentPage.assignmetns);
         assignmentPage.wait.until(ExpectedConditions.visibilityOf(assignmentPage.assignmentListContainer));
     }
 

@@ -14,6 +14,8 @@ public class AssignmentPage extends ParentPage {
     public AssignmentPage() {
         PageFactory.initElements(GWD.getDriver(), this);
     }
+    @FindBy(xpath = "(//*[@aria-hidden='true' and @data-prefix='fal'])[4]")
+    public WebElement assignmetns;
 
     @FindBy(css = "[data-testid='assignments-tab']")
     public WebElement assignmentsTab;
