@@ -5,7 +5,13 @@ import Utilities.ExcelUtility;
 import Utilities.GWD;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Hooks {
@@ -29,7 +35,18 @@ public class Hooks {
     }
 
     @After
-    public void after() {
+    public void after(Scenario scenario) {
+
+        ExcelUtility.writeToExcel("src/test/java/ApachePOI/ScenarioResults.xlsx",
+                scenario, GWD.getThreadBrowserName());
+
+        File screenshot = ((TakesScreenshot) GWD.getDriver()).getScreenshotAs(OutputType.FILE);
+        try {
+            FileUtils.copyFile(screenshot, new File("screenshots", scenario.getName() + ".png"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
         GWD.quitDriver();
     }
 }
