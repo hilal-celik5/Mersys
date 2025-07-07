@@ -38,4 +38,28 @@ public class CalendarPage extends ParentPage {
     @FindBy(xpath = "//iframe[@class='ng-star-inserted'] ")
     public WebElement iframe;
 
+    @FindBy(xpath = "//div[contains(text(),'Meeting has not started yet')]")
+    public WebElement meetingNotStartedMessage;
+
+    @FindBy(xpath = "//div[contains(@class,'popup')]//span[contains(text(),'Lesson Name')]")
+    public WebElement lessonName;
+
+    @FindBy(xpath = "//div[contains(@class,'popup')]//span[contains(text(),'Teacher')]")
+    public WebElement teacherName;
+
+    @FindBy(xpath = "//div[contains(@class,'popup')]//span[contains(text(),'Date')]")
+    public WebElement lessonDate;
+
+    @FindBy(xpath = "//a[text()='Information']")
+    public WebElement infoTab;
+
+    @FindBy(xpath = "//a[text()='Topic']")
+    public WebElement topicTab;
+
+    @FindBy(xpath = "//a[text()='Attachments']")
+    public WebElement attachmentsTab;
+
+    @FindBy(xpath = "//a[text()='Recent Events']")
+    public WebElement recentEventsTab;
+
 }
