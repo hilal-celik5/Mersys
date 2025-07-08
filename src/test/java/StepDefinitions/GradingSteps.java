@@ -13,6 +13,7 @@ import java.time.Duration;
 import static org.testng.AssertJUnit.assertTrue;
 
 public class GradingSteps {
+
     WebDriver driver = GWD.getDriver();
     GradingPage gp = new GradingPage();
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));

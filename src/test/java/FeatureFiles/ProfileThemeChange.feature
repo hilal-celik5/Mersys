@@ -2,7 +2,6 @@
 Feature: Choosing a theme
 
   Scenario: Display theme menu
-
     When student opens "Profile > Settings"
     Then the Default Theme dropdown is visible
     When student clicks the Default Theme dropdown

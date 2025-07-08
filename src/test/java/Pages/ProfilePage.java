@@ -9,6 +9,7 @@ public class ProfilePage {
 
         public ProfilePage(){ PageFactory.initElements(GWD.getDriver(), this); }
 
+
         @FindBy(css="img.profile-picture")          public WebElement profileImg;
         @FindBy(css="input[type='file']")           public WebElement fileInput;
         @FindBy(css=".toast-message")               public WebElement toastMessage;

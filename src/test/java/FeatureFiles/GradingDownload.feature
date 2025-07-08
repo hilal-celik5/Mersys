@@ -1,6 +1,7 @@
 @LoginRequired
 Feature: Download notes as PDF
 
+
   Scenario Outline: PDF download for <section>
     When student opens "Grading"
     And student clicks the "<section>" tab
