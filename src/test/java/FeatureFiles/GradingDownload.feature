@@ -1,10 +1,7 @@
-@LoginRequired @US016
-Feature: Notları PDF olarak indirme
+@LoginRequired
+Feature: Download notes as PDF
 
-  Bir öğrenci olarak, detaylı ders notlarımı (Course Grade) ve transkriptimi (Student Transcript)
-  campus uygulamasını kullandığım cihaza indirebilmeliyim.
-
-  Scenario Outline: <section> için PDF indirme
+  Scenario Outline: PDF download for <section>
     When student opens "Grading"
     And student clicks the "<section>" tab
     And student clicks the "Print" icon

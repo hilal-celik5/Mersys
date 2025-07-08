@@ -21,6 +21,7 @@ public class ProfilePage {
 
         @FindBy(css = "button[type='submit']")
         public WebElement saveButton;
+
 }
 
 

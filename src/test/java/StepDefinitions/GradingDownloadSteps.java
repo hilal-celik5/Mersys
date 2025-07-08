@@ -69,6 +69,7 @@ public class GradingDownloadSteps {
                         return false;
                     }
                 });
+
         assertTrue("PDF dosyası indirilmedi!", found);
 
         driver.close();

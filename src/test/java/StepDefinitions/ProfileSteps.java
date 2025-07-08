@@ -19,6 +19,7 @@ public class ProfileSteps {
             driver.findElement(By.xpath("//*[normalize-space()='"+item.trim()+"']")).click();
         }
     }
+
     @When("student clicks the profile image")
     public void clickProfileImg(){ pp.profileImg.click(); }
 

@@ -35,5 +35,6 @@ public class GradingSteps {
         wait.until(ExpectedConditions.visibilityOf(gp.transcriptBySubjectTab));
         assertTrue(gp.transcriptBySubjectTab.isDisplayed());
         assertTrue(gp.transcriptBySubjectTab.isEnabled());
+
     }
 }

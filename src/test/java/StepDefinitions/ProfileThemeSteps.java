@@ -63,6 +63,7 @@ public class ProfileThemeSteps {
         public void successToastAppears() {
             wait.until(ExpectedConditions.visibilityOf(pp.toastMessage));
             assertTrue(pp.toastMessage.getText().toLowerCase().contains("success"));
+
         }
     }
 
