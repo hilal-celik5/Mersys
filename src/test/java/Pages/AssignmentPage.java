@@ -37,6 +37,54 @@ public class AssignmentPage extends ParentPage {
     @FindBy(css = "[formcontrolname='commentText']")
     public WebElement message;
 
-    @FindBy(xpath= "(//div[@fxlayout='row wrap']/bdi)[last()]")
+    @FindBy(xpath = "(//div[@fxlayout='row wrap']/bdi)[last()]")
     public WebElement lastMessage;
+
+    @FindBy(xpath = "//span[text()='Attach Files...']")
+    public WebElement attachFilesButton;
+
+    @FindBy(xpath = "(//button[@role='menuitem'])[9]")
+    public WebElement fromMyFiles;
+
+    @FindBy(xpath = "#mat-mdc-checkbox-1-input")
+    public WebElement checkBox;
+
+    @FindBy(xpath = "//*[text()='Select']")
+    public WebElement select;
+
+    @FindBy(xpath = "//span[text()='Submit']")
+    public WebElement submit;
+
+    @FindBy(xpath = "//*[text()='Save as Draft']")
+    public WebElement saveAsDraft;
+
+    @FindBy(xpath = "(//*[text()='Submit'])[2]")
+    public WebElement button;
+
+    @FindBy(css = "button[type='submit'] >:nth-child(2)")
+    public WebElement confirmYes;
+
+    @FindBy(xpath = " //*[text()='New Submission']")
+    public WebElement newSubmission;
+
+    @FindBy(css = "[icon='file-import']")
+    public List<WebElement> submitList;
+
+    @FindBy(xpath = "(//*[@icon='file-import']/button)[1]")
+    public WebElement submitButton;
+
+    @FindBy(css = "[class='mat-accordion']")
+    public WebElement successMessages;
+
+    @FindBy(xpath = "//*[contains(@class, 'mat-mdc-dialog-container')]")
+    public WebElement textEditor;
+
+    @FindBy(css = "[class='assignment']")
+    public List<WebElement> assignmentRows;
+
+    @FindBy(xpath = "(//div[@fxlayout='row'])[18]")
+    public WebElement defaultDetail;
+
+    @FindBy(css = "[icon='info']")
+    public WebElement infoButton;
 }
